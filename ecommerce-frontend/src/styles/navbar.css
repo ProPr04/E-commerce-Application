@@ -1,0 +1,96 @@
+.navbar {
+  border-bottom: 1px solid #e0e0e0;
+  background-color: white;
+  padding: 10px 20px;
+}
+
+/* TOP ROW */
+.navbar-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* LEFT */
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  font-weight: bold;
+  color: #f1641e;
+  cursor: pointer;
+}
+
+.categories {
+  font-weight: 500;
+  cursor: pointer;
+}
+
+/* SEARCH */
+.nav-search {
+  display: flex;
+  align-items: center;
+  background-color: #f5f5f5;
+  border-radius: 30px;
+  padding: 8px 15px;
+  width: 50%;
+  position: relative;
+}
+
+.search-input {
+  width: 100%;
+}
+
+.search-icon {
+  background-color: #f1641e;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* RIGHT */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-weight: 500;
+}
+
+.nav-right span {
+  cursor: pointer;
+}
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+}
+
+/* Icon size consistency */
+.nav-right svg {
+  font-size: 22px;
+  cursor: pointer;
+}
+
+/* Search icon */
+.search-icon svg {
+  font-size: 20px;
+}
+/* BOTTOM ROW */
+.navbar-bottom {
+  margin-top: 10px;
+  display: flex;
+  gap: 20px;
+  font-size: 14px;
+  color: #555;
+}
+
+.navbar-bottom span {
+  cursor: pointer;
+}
