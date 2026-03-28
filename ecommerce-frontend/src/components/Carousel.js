@@ -1,50 +1,24 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "../styles/carousel.css";
 
-function Carousel() {
-  const images = [
-    "/images/carousel1.jpg",
-    "/images/carousel2.jpg",
-    "/images/carousel3.jpg",
-  ];
-
-  const [index, setIndex] = useState(0);
-
-  // Auto slide
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setIndex((prev) => (prev + 1) % images.length);
-    }, 3000);
-
-    return () => clearInterval(interval); //stops the interval
-  }, []);
-  // Button Function
-  const nextSlide = () => {
-    setIndex((prev) => (prev + 1) % images.length);
-  };
-
-  const prevSlide = () => {
-    setIndex((prev) =>
-      prev === 0 ? images.length - 1 : prev - 1
-    );
-  };
-
+function Carousel({ image, title, cta, onNext, onPrev }) {
   return (
     <div className="carousel-container">
-
       <img
-        src={images[index]}
-        alt="carousel"
+        src={image}
+        alt={title}
         className="carousel-image"
       />
 
+      <div className="carousel-scrim" />
+
       <div className="overlay-text">
-        Host your best Easter brunch yet
+        <h3>{title}</h3>
+        <span>{cta}</span>
       </div>
 
-      <button className="prev" onClick={prevSlide}>❮</button>
-      <button className="next" onClick={nextSlide}>❯</button>
-
+      <button className="prev" onClick={onPrev}>{"<"}</button>
+      <button className="next" onClick={onNext}>{">"}</button>
     </div>
   );
 }

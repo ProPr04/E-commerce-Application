@@ -1,5 +1,11 @@
+import API from "../api/axios";
+
 export const fetchProducts = async () => {
-  const response = await fetch("https://fakestoreapi.com/products");
-  const data = await response.json();
-  return data;
+  const response = await API.get("/products");
+  return response.data;
+};
+
+export const fetchProductById = async (id) => {
+  const response = await API.get(`/products/${id}`);
+  return response.data;
 };
