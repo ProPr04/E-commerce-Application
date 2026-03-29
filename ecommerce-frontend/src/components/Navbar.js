@@ -19,7 +19,7 @@ function Navbar() {
       <div className="navbar-top">
         <div className="nav-left">
           <div className="logo" onClick={() => navigate("/")}>
-            Pranit ki Dukan
+            Htsy
           </div>
 
           <div className="categories">Categories</div>
