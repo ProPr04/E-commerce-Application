@@ -1,16 +1,18 @@
+import dotenv from "dotenv";
+dotenv.config();
+
 import express from "express";
 import cors from "cors";
 import authRoutes from "./routes/auth.js";
 import pool from "./db.js"
-import dotenv from "dotenv";
 import authMiddleware from "./middleware/authMiddleware.js";
 import cartRoutes from "./routes/cart.js";
 import orderRoutes from "./routes/orders.js";
 import productRoutes from "./routes/products.js";
+import chatRoutes from "./routes/chat.js";
 
 
 
-dotenv.config();
 
 
 const app = express();
@@ -20,6 +22,7 @@ const app = express();
 // Middleware
 app.use(cors());
 app.use(express.json());
+app.use("/chat", chatRoutes);
 
 
 //routes

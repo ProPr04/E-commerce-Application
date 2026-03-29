@@ -10,6 +10,7 @@ import Signup from "./pages/Signup";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Orders from "./pages/Orders";
 import OrderDetails from "./pages/OrderDetails";
+import ChatAssistant from "./components/ChatAssistant";
 
 function App() {
   return (
@@ -41,6 +42,7 @@ function App() {
           }
         />
       </Routes>
+      <ChatAssistant />
     </>
   );
 }
