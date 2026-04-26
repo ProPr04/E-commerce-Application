@@ -1,10 +1,15 @@
-import {Pool} from "pg";
+import { Pool } from "pg";
 
 const pool = new Pool({
-  user: "postgres",
-  password: "Pran0407@P",
-  host: "localhost",
-  port: 5432,
-  database: "ecommerce",
+  user: process.env.PGUSER,
+  password: process.env.PGPASSWORD,
+  host: process.env.PGHOST || "localhost",
+  port: Number(process.env.PGPORT || 5432),
+  database: process.env.PGDATABASE,
+  ssl:
+    process.env.PGSSLMODE === "require"
+      ? { rejectUnauthorized: false }
+      : false,
 });
+
 export default pool;

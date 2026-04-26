@@ -11,16 +11,25 @@ import orderRoutes from "./routes/orders.js";
 import productRoutes from "./routes/products.js";
 import chatRoutes from "./routes/chat.js";
 
-
-
-
-
 const app = express();
 
-
-
 // Middleware
-app.use(cors());
+const allowedOrigins = (process.env.CORS_ORIGIN || "")
+  .split(",")
+  .map((origin) => origin.trim())
+  .filter(Boolean);
+
+app.use(
+  cors({
+    origin(origin, callback) {
+      if (!origin || allowedOrigins.length === 0 || allowedOrigins.includes(origin)) {
+        return callback(null, true);
+      }
+
+      return callback(new Error("Not allowed by CORS"));
+    },
+  })
+);
 app.use(express.json());
 app.use("/chat", chatRoutes);
 

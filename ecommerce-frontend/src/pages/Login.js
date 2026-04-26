@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { TextField, Button, Container, Typography } from "@mui/material";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { setToken } from "../utils/auth";
+import API from "../api/axios";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -16,7 +16,7 @@ function Login() {
       setLoading(true);
       setError("");
 
-      const res = await axios.post("http://localhost:5000/auth/login", {
+      const res = await API.post("/auth/login", {
         email,
         password,
       });

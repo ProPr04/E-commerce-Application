@@ -11,6 +11,10 @@ router.post("/signup", async (req, res) => {
   try {
     const { email, password } = req.body;
 
+    if (!email || !password) {
+      return res.status(400).json("Email and password are required");
+    }
+
     // Check if user exists
     const user = await pool.query(
       "SELECT * FROM users WHERE email = $1",
@@ -45,13 +49,17 @@ router.post("/login", async (req, res) => {
   try {
     const { email, password } = req.body;
 
+    if (!email || !password) {
+      return res.status(400).json("Email and password are required");
+    }
+
     const user = await pool.query(
       "SELECT * FROM users WHERE email=$1",
       [email]
     );
 
     if (user.rows.length === 0) {
-      return res.status(400).json("User not found");
+      return res.status(400).json("Invalid email or password");
     }
 
     // 🔐 Compare hashed password
@@ -61,7 +69,7 @@ router.post("/login", async (req, res) => {
     );
 
     if (!validPassword) {
-      return res.status(400).json("Invalid password");
+      return res.status(400).json("Invalid email or password");
     }
 
     // ✅ Generate token
