@@ -47,43 +47,12 @@ function HeroSection() {
   const current = slides[index];
   const side = slides[(index + 1) % slides.length];
 
-  const handleNext = () => {
-    setIndex((prev) => (prev + 1) % slides.length);
-  };
-
-  const handlePrev = () => {
-    setIndex((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
-  };
-
   return (
     <Box className="hero-container">
-      <Box className="hero-feature-card">
-        <Box
-          className="hero-copy-panel"
-          style={{ backgroundColor: current.accent }}
-        >
-          <Typography className="hero-title">
-            {current.title}
-          </Typography>
-          <Typography className="hero-copy">
-            {current.copy}
-          </Typography>
-          <Button className="hero-button">
-            {current.cta}
-          </Button>
-        </Box>
-
-        <Box className="hero-image-panel" style={{ backgroundColor: current.accent }}>
-          
-        </Box>
-      </Box>
-
       <Carousel
-        image={side.image}
-        title={side.sideTitle}
-        cta={side.sideCta}
-        onNext={handleNext}
-        onPrev={handlePrev}
+        image={current.image}
+        title={current.title}
+        cta={current.cta}
       />
     </Box>
   );

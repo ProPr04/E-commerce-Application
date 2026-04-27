@@ -1,7 +1,7 @@
 import React from "react";
 import "../styles/carousel.css";
 
-function Carousel({ image, title, cta, onNext, onPrev }) {
+function Carousel({ image, title, cta }) {
   return (
     <div className="carousel-container">
       <img
@@ -16,9 +16,6 @@ function Carousel({ image, title, cta, onNext, onPrev }) {
         <h3>{title}</h3>
         <span>{cta}</span>
       </div>
-
-      <button className="prev" onClick={onPrev}>{"<"}</button>
-      <button className="next" onClick={onNext}>{">"}</button>
     </div>
   );
 }
