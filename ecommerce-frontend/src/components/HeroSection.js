@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Box, Button, Typography } from "@mui/material";
+import { Box } from "@mui/material";
 import Carousel from "./Carousel.js";
 import "../styles/hero.css";
 
@@ -45,7 +45,7 @@ function HeroSection() {
   }, []);
 
   const current = slides[index];
-  const side = slides[(index + 1) % slides.length];
+
 
   return (
     <Box className="hero-container">
