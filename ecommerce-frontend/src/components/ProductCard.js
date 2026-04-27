@@ -57,6 +57,9 @@ function ProductCard({ product }) {
             lineHeight: 1.35,
             minHeight: "54px",
             overflow: "hidden",
+            display: "-webkit-box",
+            WebkitLineClamp: 2,
+            WebkitBoxOrient: "vertical",
           }}
         >
           {product.title}

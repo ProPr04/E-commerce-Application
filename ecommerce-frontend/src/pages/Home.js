@@ -93,7 +93,7 @@ function Home() {
 
       <Grid container spacing={2}>
         {filteredProducts.map((product) => (
-          <Grid item xs={12} sm={6} md={3} key={product.id}>
+          <Grid item xs={6} sm={6} md={3} key={product.id}>
             <ProductCard product={product} />
           </Grid>
         ))}
